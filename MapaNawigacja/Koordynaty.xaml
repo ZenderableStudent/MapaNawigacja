@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="MapaNawigacja.Koordynaty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MapaNawigacja"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="NAWIGATOR" FontSize="15"></TextBlock>
+            <TextBlock Text="koordynaty" FontSize="40"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="GPS: moje położenie" FontSize="30"></TextBlock>
+            <Border Background="Aquamarine">
+                <TextBlock Name="tbGPS" Text="***" FontSize="30" Foreground="Black" HorizontalAlignment="Center"></TextBlock>
+            </Border>
+            <TextBlock Name="adresCelu" Text="podaj adres celu" FontSize="30" Margin="0,30,0,0"></TextBlock>
+            <TextBox FontSize="30" Name="txAdres" Text=""></TextBox>
+            <Border Background="Aquamarine">
+                <StackPanel>
+                    <TextBlock Foreground="Black" FontSize="30" Text="wyznaczone współrzędne geograficzne" HorizontalAlignment="Center"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Black" FontSize="30" Text="długość geogr.: " HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Name="tbDlg" Foreground="Black" FontSize="30" Text="" HorizontalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="Black" Text="szerokość geogr.:" FontSize="30" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Name="tbSzer" Foreground="Black" Text="" FontSize="30" HorizontalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <CommandBar Grid.Row="2" IsOpen="true">
+            <AppBarButton Icon="Back" Label="mapa" Click="goBack"></AppBarButton>
+            <AppBarSeparator></AppBarSeparator>
+            <AppBarButton Icon="Zoom" Label="szukaj" Click="szukajCelu"></AppBarButton>
+        </CommandBar>
+    </Grid>
+</Page>
